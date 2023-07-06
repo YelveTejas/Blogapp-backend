@@ -31,7 +31,7 @@ const login = async (req, res) => {
   try {
      await bcrypt.compare(req.body.password, user.password,function(error,result){
        if(result){
-        const jsontoken = jsonwebtoken.sign(user.toJSON(),process.env.normalKey)
+        const jsontoken = jsonwebtoken.sign(user.toJSON(),process.env.normalkey)
         res.status(200).json({
           Token : jsontoken,
           name : user.name,
